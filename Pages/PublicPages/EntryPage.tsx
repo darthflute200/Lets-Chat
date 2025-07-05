@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image ,StyleSheet, Text, ScrollView } from "react-native";
+import { View, Image ,StyleSheet, Text, ScrollView, Pressable } from "react-native";
 import globalStyles from "../GlobalStyles";
 import SocialBrandsContainer from "../Components/socialBrandsContainer";
 
@@ -10,7 +10,19 @@ const EntryPage = () =>{
           <Image style={style.Logo} source={require('../../assets/EntryLogo.png')}/>
           <Text style={[style.mainTextStyle , globalStyles.font]}>Connect friends easily & quickly</Text>
           <Text style={[globalStyles.IbmRegular , style.subtitle]}>Our chat app is the perfect way to stay connected with friends and family.</Text>
-          <SocialBrandsContainer/>
+          <SocialBrandsContainer color="white"/>
+          <View style={style.orContainer}>
+            <View style={style.Line}></View>
+            <Text style={[style.OrText , globalStyles.IbmRegular]}>Or</Text>
+            <View style={style.Line}></View>
+          </View>
+          <Pressable style={style.SıgnUpButton}>
+            <Text style={globalStyles.IbmRegular}>Sign Up With Mail</Text>
+          </Pressable>
+          <View style={style.LogInContainer}>
+            <Text style={[style.ExistingAccount, globalStyles.IbmRegular]}>Existing Account?</Text>
+            <Pressable><Text style={[style.LogInText , globalStyles.IbmBold]}>Log In</Text></Pressable>
+          </View>
         </ScrollView>
     )
 }
@@ -18,7 +30,7 @@ const EntryPage = () =>{
 const style = StyleSheet.create({
     MainView:{
         width: "100%",
-        height: "100%",
+        minHeight: "100%",
         backgroundColor: "#1A1A1A",
         flexDirection: "column",
         alignItems: "center",
@@ -39,7 +51,7 @@ const style = StyleSheet.create({
     },
     mainTextStyle:{
       color: "white",
-      fontSize: 68,
+      fontSize: 60,
       marginTop: 40,
       textAlign: "left",
       marginLeft: 10,
@@ -47,10 +59,48 @@ const style = StyleSheet.create({
     subtitle:{
         color:"#B9C1BE",
         textAlign:"left",
-        fontSize: 19,
+        fontSize: 20,
         marginTop: 20,
         marginLeft: 10,
         marginRight: 10
+    },
+    orContainer:{
+        width: "100%",
+        height: 30,
+        flexDirection: "row",
+        justifyContent:"center",
+        alignItems:"center",
+        gap: 20,
+        marginTop: 20
+    },
+    Line:{
+        height: 1,
+        width: "35%",
+        backgroundColor:"white"
+    },
+    OrText:{
+        fontSize: 20,
+        color:"white"
+    },
+    SıgnUpButton:{
+        backgroundColor:"white",
+        width: 327,
+        height: 48,
+        borderRadius: 16,
+        alignItems:"center",
+        justifyContent:"center",
+        marginTop: 20
+    },
+    LogInContainer:{
+        marginTop: 30,
+        gap: 5,
+        flexDirection:"row"
+    },
+    ExistingAccount:{
+        color:"#B9C1BE"
+    },
+    LogInText:{
+        color:"white"
     }
 })
 
