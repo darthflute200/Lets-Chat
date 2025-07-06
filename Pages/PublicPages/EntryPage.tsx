@@ -2,26 +2,26 @@ import React from "react";
 import { View, Image ,StyleSheet, Text, ScrollView, Pressable } from "react-native";
 import globalStyles from "../GlobalStyles";
 import SocialBrandsContainer from "../Components/socialBrandsContainer";
+import OrComponent from "../Components/OrComponont";
+import { PublicStackParamList } from "../Types/PublicPagesStackType";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const EntryPage = () =>{
+type Props = NativeStackScreenProps<PublicStackParamList, 'Entry'>;
+const EntryPage = ({ navigation }: Props) =>{
     return(
         <ScrollView contentContainerStyle={style.MainView}>
           <Image style={style.BackgroundStyle} source={require('../../assets/Ellipse.png')}/>
           <Image style={style.Logo} source={require('../../assets/EntryLogo.png')}/>
           <Text style={[style.mainTextStyle , globalStyles.font]}>Connect friends easily & quickly</Text>
           <Text style={[globalStyles.IbmRegular , style.subtitle]}>Our chat app is the perfect way to stay connected with friends and family.</Text>
-          <SocialBrandsContainer color="white"/>
-          <View style={style.orContainer}>
-            <View style={style.Line}></View>
-            <Text style={[style.OrText , globalStyles.IbmRegular]}>Or</Text>
-            <View style={style.Line}></View>
-          </View>
-          <Pressable style={style.SıgnUpButton}>
+          <SocialBrandsContainer color="white" AppleColor="white"/>
+          <OrComponent color="white" LineColor="white"/>
+          <Pressable onPress={() =>{navigation.navigate("Signup")}} style={style.SıgnUpButton}>
             <Text style={globalStyles.IbmRegular}>Sign Up With Mail</Text>
           </Pressable>
           <View style={style.LogInContainer}>
             <Text style={[style.ExistingAccount, globalStyles.IbmRegular]}>Existing Account?</Text>
-            <Pressable><Text style={[style.LogInText , globalStyles.IbmBold]}>Log In</Text></Pressable>
+            <Pressable onPress={() =>{navigation.navigate("Login")}}><Text style={[style.LogInText , globalStyles.IbmBold]}>Log In</Text></Pressable>
           </View>
         </ScrollView>
     )

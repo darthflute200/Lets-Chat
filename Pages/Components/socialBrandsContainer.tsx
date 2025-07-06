@@ -6,8 +6,9 @@ import AppleIcon from "../../assets/apple.svg";
 
 interface Props {
     color: string;
+    AppleColor: string
   }
-const SocialBrandsContainer = ({ color }: Props) =>{
+const SocialBrandsContainer = ({ color , AppleColor }: Props) =>{
     return(
         <View style={style.BrandContainer}>
             <Pressable style={[style.Button , {borderColor: color}]}>
@@ -17,7 +18,7 @@ const SocialBrandsContainer = ({ color }: Props) =>{
                 <FacebookIcon/>
             </Pressable> 
             <Pressable style={[style.Button , {borderColor: color}]}>
-                <AppleIcon width={42} height={42} fill="#ffff"/>
+                <AppleIcon width={42} height={42} fill={AppleColor}/>
             </Pressable>     
         </View>
     )

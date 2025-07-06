@@ -5,6 +5,7 @@
  * @format
  */
 
+import PublicPageNavigator from "./Pages/Navigators/PublicPageNavigator";
 import EntryPage from "./Pages/PublicPages/EntryPage";
 
 
@@ -12,7 +13,7 @@ import EntryPage from "./Pages/PublicPages/EntryPage";
 function App() {
 
   return (
-    <EntryPage/>
+    <PublicPageNavigator/>
   );
 }
 
