@@ -4,9 +4,9 @@
  *
  * @format
  */
-
+import 'react-native-reanimated'
 import PublicPageNavigator from "./Pages/Navigators/PublicPageNavigator";
-import EntryPage from "./Pages/PublicPages/EntryPage";
+import PrivatePageNavigator from "./Pages/Navigators/PrivatePageNavigator";
 
 
 

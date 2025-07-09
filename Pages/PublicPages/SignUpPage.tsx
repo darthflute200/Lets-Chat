@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView , View, Pressable , Text } from "react-native";
+import { ScrollView , View, Pressable , Text, Image } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import InputFormContainer from "../Components/InputFormContainer";
@@ -9,6 +9,8 @@ import globalStyles from "../GlobalStyles";
 import { StyleSheet } from "react-native";
 import { PublicStackParamList } from "../Types/PublicPagesStackType";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RowMap } from "react-native-swipe-list-view";
+import { ListRenderItemInfo } from "react-native";
 
 type Props = NativeStackScreenProps<PublicStackParamList, 'Signup'>;
 const SignUpPage = ({navigation} : Props) => {
