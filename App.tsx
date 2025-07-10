@@ -13,7 +13,7 @@ import PrivatePageNavigator from "./Pages/Navigators/PrivatePageNavigator";
 function App() {
 
   return (
-    <PublicPageNavigator/>
+    <PrivatePageNavigator/>
   );
 }
 

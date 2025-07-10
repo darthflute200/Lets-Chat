@@ -46,7 +46,7 @@ const MessageItem: React.FC<Props> = ({ message, onDelete , simultaneousHandlers
     <View style={styles.container}>
       <View style={styles.deleteButtonContainer}>
         <Pressable style={styles.deleteButton} onPress={() => onDelete(message.id)}>
-          <Text style={{ color: "white" }}>Sil</Text>
+          <Text style={{ color: "white" }}>Delete</Text>
         </Pressable>
       </View>
       <GestureDetector gesture={panGesture}>
