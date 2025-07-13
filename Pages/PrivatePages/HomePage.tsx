@@ -1,14 +1,13 @@
-import React , {useRef , useMemo} from "react";
-import { Pressable, StyleSheet, View , Text, Image, ScrollView ,StatusBar, SafeAreaView} from "react-native";
+import React , {useRef , useMemo, useState} from "react";
+import {  StyleSheet, View , ScrollView ,StatusBar, SafeAreaView} from "react-native";
 import { PrivateStackParamList } from "../Types/PrivatePagesStackType";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import globalStyles from "../GlobalStyles";
 import StoryComponent from "../Components/StoryComponent";
 import BottomSheet from "@gorhom/bottom-sheet";
 import MessageItem from "../Components/MessageItem";
 import { BottomSheetScrollView } from "@gorhom/bottom-sheet";
+import PageTitle from "../Components/PageTitle";
+import SearchComponent from "../Components/SearchComponent";
 type Props = NativeStackScreenProps<PrivateStackParamList, 'HomePage'>;
 type Message = {
     id: string;
@@ -22,6 +21,7 @@ const HomePage = ({navigation} : Props) =>{
     const bottomSheetRef = useRef<BottomSheet>(null);
     const snapPoints = useMemo(() => ["70%", "100%"], []);
     const scrollViewRef = useRef(null);
+    const [search , setSearch] = useState(false);
     const messages: Message[] = [
         { id: '1', text: 'Merhaba nasılsın iyi misin?',  photouri: require("../../assets/user.png") , time: "2 minutes ago" , name: "Ege Özdalyan" ,newMessage: 3},
         { id: '3', text: 'Selam',  photouri: require("../../assets/user.png") , time: "5 minutes ago" , name: "Ahmet" ,newMessage: 1},
@@ -47,13 +47,10 @@ const HomePage = ({navigation} : Props) =>{
         barStyle="light-content"   translucent backgroundColor="transparent"
       />
         <View style={style.HomePageMain}>
-           <View style={style.HomePageSearchContainer}>
-              <Pressable style={style.SearchButton}>
-                <FontAwesomeIcon icon={faMagnifyingGlass} style={{color: "white"}}/>
-              </Pressable>
-              <Text style={[globalStyles.IbmBold , style.HomeText]}>Home</Text>
-              <Image source={require("../../assets/user.png")}/>
-           </View>
+            {search === false ? <PageTitle color="white" title="Home" onPress={() =>{setSearch(true)}} image={(require("../../assets/user.png"))}/> 
+            : 
+            <SearchComponent onChange={() =>{setSearch(false)}}/>
+            }
            <ScrollView contentContainerStyle={style.StoryScrollComponent} horizontal>
                 <StoryComponent PhotoUri={require("../../assets/user.png")} BorderColor="#FBDC94"/>
                 <StoryComponent PhotoUri={require("../../assets/user.png")} BorderColor="#FBDC94"/>

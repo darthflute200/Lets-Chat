@@ -4,9 +4,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from "../PrivatePages/HomePage";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faMessage , faPhoneVolume} from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser, faGear, faMessage , faPhoneVolume} from "@fortawesome/free-solid-svg-icons";
 import { PrivateStackParamList } from "../Types/PrivatePagesStackType";
 import Calls from "../PrivatePages/Calls";
+import Contacts from "../PrivatePages/Contacts";
+import Settings from "../PrivatePages/Settings";
 const Tab = createBottomTabNavigator<PrivateStackParamList>();
 
 const PrivatePageNavigator = () => {
@@ -22,7 +24,7 @@ const PrivatePageNavigator = () => {
             tabBarStyle: {
               backgroundColor: "white",
               borderTopWidth: 0,
-              height: 60,
+              height: 70,
             },
             tabBarLabelStyle: {
               fontSize: 12,
@@ -48,6 +50,26 @@ const PrivatePageNavigator = () => {
                 <FontAwesomeIcon icon={faPhoneVolume} color={color} size={20} />
               ),
               title: "Calls"
+            }} 
+          />
+          <Tab.Screen 
+            name="Contacts" 
+            component={Contacts} 
+            options={{
+              tabBarIcon: ({ color }) => (
+                <FontAwesomeIcon icon={faCircleUser} color={color} size={20} />
+              ),
+              title: "Contacts"
+            }} 
+          />
+          <Tab.Screen 
+            name="Settings" 
+            component={Settings} 
+            options={{
+              tabBarIcon: ({ color }) => (
+                <FontAwesomeIcon icon={faGear} color={color} size={20} />
+              ),
+              title: "Settings"
             }} 
           />
         </Tab.Navigator>

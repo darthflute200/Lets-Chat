@@ -2,6 +2,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import { View, Text, StyleSheet, Pressable, Dimensions, Image } from 'react-native';
 import React from 'react';
+import globalStyles from '../GlobalStyles';
 
 type Message = {
   id: string;
@@ -54,8 +55,8 @@ const MessageItem: React.FC<Props> = ({ message, onDelete , simultaneousHandlers
           <View style={styles.MessageItemLeftView}>
             <Image style={styles.Image} source={message.photouri} />
             <View style={styles.NameAndTextView}>
-              <Text>{message.name}</Text>
-              <Text>{message.text}</Text>
+              <Text style={[styles.name , globalStyles.IbmBold]}>{message.name}</Text>
+              <Text style={styles.text}>{message.text}</Text>
             </View>
           </View>
           <View style={styles.NameAndTextViewRight}>
@@ -128,6 +129,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  name:{
+    fontSize: 20,
+    color:"#000E08"
+  },
+  text:{
+    fontSize: 12,
+    color:"#797C7B"
+  }
 });
 
 export default MessageItem;
