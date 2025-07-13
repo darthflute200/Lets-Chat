@@ -29,7 +29,7 @@ const LogInPage = ({navigation} :Props) =>{
                 <SocialBrandsContainer color="#797C7B" AppleColor="#797C7B"/>
                 <OrComponent color="#797C7B" LineColor="#CDD1D0"/>
                 <View style={style.FormContainer}>
-                    <InputFormContainer label="Your email"/>
+                    <InputFormContainer label="Your email or username"/>
                     <InputFormContainer label="Password"/>
                 </View>
             </View>

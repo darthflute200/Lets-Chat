@@ -30,6 +30,7 @@ const SignUpPage = ({navigation} : Props) => {
             <View style={style.FormContainer}>
                 <InputFormContainer label="Your name"/>
                 <InputFormContainer label="Your email"/>
+                <InputFormContainer label="username"/>
                 <InputFormContainer label="Password"/>
                 <InputFormContainer label="Confirm Password"/>
             </View>
